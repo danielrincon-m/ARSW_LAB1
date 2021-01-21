@@ -26,12 +26,12 @@
 
 ### 📂 Desarrollo de la practica:
 
-#### Método start():
+#### ✏️ Método start():
 Se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/start().png)
 
-#### Método run():
+#### ✏️ Método run():
 Se pudo evidenciar que el metodo run(), crea los hilos desde el metodo , lo que hace que salida de los intervalos de los hilos sea ordenada ya que cada llamada la hace secuencialmente al llamado del metodo y no en paralelo:
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/run().png)
