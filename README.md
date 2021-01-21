@@ -21,7 +21,7 @@
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
-### desarrollo de la pratica:
+### desarrollo de la practica:
 
 #### metodo start():
 se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
