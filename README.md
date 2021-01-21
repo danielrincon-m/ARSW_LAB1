@@ -24,7 +24,7 @@
 
 ---
 
-### 📂 Desarrollo de la practica:
+### 📂 Desarrollo de la práctica:
 
 #### ✏️ Método start():
 Se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
@@ -66,14 +66,14 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
 1. Cree una clase de tipo Thread que represente el ciclo de vida de un hilo que haga la búsqueda de un segmento del conjunto de servidores disponibles. Agregue a dicha clase un método que permita 'preguntarle' a las instancias del mismo (los hilos) cuantas ocurrencias de servidores maliciosos ha encontrado o encontró.
 
-📂 Desarrollo de la practica:
+📂 Desarrollo de la práctica:
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/host%20NO%20confiable.png)
 
 
 2. Agregue al método 'checkHost' un parámetro entero N, correspondiente al número de hilos entre los que se va a realizar la búsqueda (recuerde tener en cuenta si N es par o impar!). Modifique el código de este método para que divida el espacio de búsqueda entre las N partes indicadas, y paralelice la búsqueda a través de N hilos. Haga que dicha función espere hasta que los N hilos terminen de resolver su respectivo sub-problema, agregue las ocurrencias encontradas por cada hilo a la lista que retorna el método, y entonces calcule (sumando el total de ocurrencuas encontradas por cada hilo) si el número de ocurrencias es mayor o igual a _BLACK_LIST_ALARM_COUNT_. Si se da este caso, al final se DEBE reportar el host como confiable o no confiable, y mostrar el listado con los números de las listas negras respectivas. Para lograr este comportamiento de 'espera' revise el método [join](https://docs.oracle.com/javase/tutorial/essential/concurrency/join.html) del API de concurrencia de Java. Tenga también en cuenta:
 
-📂 Desarrollo de la practica:
+📂 Desarrollo de la práctica:
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/host%20%20confiable.png)
 
