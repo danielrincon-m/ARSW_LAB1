@@ -21,6 +21,15 @@
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+***desarrollo de la pratica:
+
+****metodo start():
+se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
+
+****metodo run():
+se pudo evidenciar que el metodo run(), crea los hilos desde el metodo , lo que hace que salida de los intervalos de los hilos sea ordenada ya que cada llamada la hace secuencialmente al llamado del metodo y no en paralelo:
+
+
 
 **Parte II - Ejercicio Black List Search**
 
