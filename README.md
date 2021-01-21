@@ -24,7 +24,7 @@
 
 ---
 
-### Desarrollo de la practica:
+### 📂 Desarrollo de la practica:
 
 #### Método start():
 Se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
