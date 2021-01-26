@@ -94,6 +94,9 @@ con el valor correcto.
 
 A partir de lo anterior, implemente la siguiente secuencia de experimentos para realizar las validación de direcciones IP dispersas (por ejemplo 202.24.34.55), tomando los tiempos de ejecución de los mismos (asegúrese de hacerlos en la misma máquina):
 
+
+### 📂 Desarrollo de la práctica:
+
 **1. Un solo hilo.**
 
 ***Tiempo de ejecución*** = 133 s
