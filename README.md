@@ -85,6 +85,7 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
 
 La estrategia de paralelismo antes implementada es ineficiente en ciertos casos, pues la búsqueda se sigue realizando aún cuando los N hilos (en su conjunto) ya hayan encontrado el número mínimo de ocurrencias requeridas para reportar al servidor como malicioso. Cómo se podría modificar la implementación para minimizar el número de consultas en estos casos?, qué elemento nuevo traería esto al problema?
+
 Para minimizar el numero de consultas es posible crear una variable global que incremente cada vez que se  realiza  una consulta. Dicha solución cuando se implementa impide
 llevar un conteo limpio de estos casos ya que las variables pueden sufrir modificación antes o despues de que otra variable sea conusulte, impidiendo que esta se modifique
 con el valor correcto.
@@ -93,11 +94,27 @@ con el valor correcto.
 
 A partir de lo anterior, implemente la siguiente secuencia de experimentos para realizar las validación de direcciones IP dispersas (por ejemplo 202.24.34.55), tomando los tiempos de ejecución de los mismos (asegúrese de hacerlos en la misma máquina):
 
-1. Un solo hilo.
-2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).
-3. Tantos hilos como el doble de núcleos de procesamiento.
-4. 50 hilos.
-5. 100 hilos.
+**1. Un solo hilo.**
+***Tiempo de ejecución*** = 133 s
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/1%20Hilo.PNG)
+
+**2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).**
+***Tiempo de ejecución*** = 17 s
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/8%20Hilo.PNG)
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/8%20Hilos%20-%20Threads.PNG)
+
+**3. Tantos hilos como el doble de núcleos de procesamiento.**
+***Tiempo de ejecución*** = 9 s
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/16%20Hilos%20-%20doble%20procesadores.PNG)
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/16%20Hilos%20Threads%20-%20doble%20de%20procesadores.PNG)
+
+**4. 50 hilos.**
+***Tiempo de ejecución*** = 3 s
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/50%20hilos.PNG)
+
+**5. 100 hilos.**
+***Tiempo de ejecución*** = ---
+No fue posible identificar el tiempo de ejecución ya que al momento de ejecutar el proyecto este no reportaba ningun valor en VisualMV.
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
@@ -108,6 +125,9 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 1. Según la [ley de Amdahls](https://www.pugetsystems.com/labs/articles/Estimating-CPU-Performance-using-Amdahls-Law-619/#WhatisAmdahlsLaw?):
 
 	![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
+	
+Cuando se utilizan un numero muy alto numero de hilos es mas costoso la construción y ejecución de los mismos que el beneficio que este pueda dar. Por esta razón
+aveces cuando se tiene un nunmero mayor de hilo no brinda un mayor desempeño. 
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
