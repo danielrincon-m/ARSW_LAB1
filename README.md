@@ -86,7 +86,7 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
 La estrategia de paralelismo antes implementada es ineficiente en ciertos casos, pues la búsqueda se sigue realizando aún cuando los N hilos (en su conjunto) ya hayan encontrado el número mínimo de ocurrencias requeridas para reportar al servidor como malicioso. Cómo se podría modificar la implementación para minimizar el número de consultas en estos casos?, qué elemento nuevo traería esto al problema?
 
-Para minimizar el numero de consultas es posible crear una variable global que incremente cada vez que se  realiza  una consulta. Dicha solución cuando se implementa impide
+✏️ Para minimizar el numero de consultas es posible crear una variable global que incremente cada vez que se  realiza  una consulta. Dicha solución cuando se implementa impide
 llevar un conteo limpio de estos casos ya que las variables pueden sufrir modificación antes o despues de que otra variable sea conusulte, impidiendo que esta se modifique
 con el valor correcto.
 
@@ -99,29 +99,29 @@ A partir de lo anterior, implemente la siguiente secuencia de experimentos para 
 
 **1. Un solo hilo.**
 
-***Tiempo de ejecución*** = 133 s
+✏️ ***Tiempo de ejecución*** = 133 s
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/1%20Hilo.PNG)
 
-**2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).**
+✏️ **2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).**
 
-***Tiempo de ejecución*** = 17 s
+✏️***Tiempo de ejecución*** = 17 s
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/8%20Hilo.PNG)
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/8%20Hilos%20-%20Threads.PNG)
 
-**3. Tantos hilos como el doble de núcleos de procesamiento.**
+✏️**3. Tantos hilos como el doble de núcleos de procesamiento.**
 
 ***Tiempo de ejecución*** = 9 s
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/16%20Hilos%20-%20doble%20procesadores.PNG)
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/16%20Hilos%20Threads%20-%20doble%20de%20procesadores.PNG)
 
-**4. 50 hilos.**
+✏️**4. 50 hilos.**
 
 ***Tiempo de ejecución*** = 3 s
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/50%20hilos.PNG)
 
-**5. 100 hilos.**
+✏️**5. 100 hilos.**
 
-***Tiempo de ejecución*** = ---
+✏️***Tiempo de ejecución*** = ---
 No fue posible identificar el tiempo de ejecución ya que al momento de ejecutar el proyecto este no reportaba ningun valor en VisualMV.
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
@@ -136,15 +136,15 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/Paralelozaci%C3%B3n.PNG)
 
-Cuando se utilizan un número muy alto numero de hilos es mas costoso la construción y ejecución de los mismos que el beneficio que este pueda dar. Por esta razón
+✏️Cuando se utilizan un número muy alto numero de hilos es mas costoso la construción y ejecución de los mismos que el beneficio que este pueda dar. Por esta razón
 aveces cuando se tiene mayor número de hilos no brinda un mayor desempeño.
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
-si se aumenta el número de hilos sobre el número de núcleos se optiene un mayor rendimiento. Esto se debe a que los hilos no aprovechan todo el potencial sobre el número de núcleos disponibles, por lo tanto quedan recursos libres que pueden ser aprovechados por un mayor número de hilos.   
+✏️si se aumenta el número de hilos sobre el número de núcleos se optiene un mayor rendimiento. Esto se debe a que los hilos no aprovechan todo el potencial sobre el número de núcleos disponibles, por lo tanto quedan recursos libres que pueden ser aprovechados por un mayor número de hilos.   
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
-Si utilizamos la definición teórica de la ley de Amdahls, podemos concluir que tanto en el caso de usar 1 hilo en cada una de 100 máquinas hipotéticas, como en el de usar c hilos en 100/c máquinas distribuidas, no se presentaría una mejora de rendimiento del problema, ya que en cada uno de los 3 casos (incluyendo 100 hilos en una sola CPU), habría la misma fracción paralelizable del algoritmo P, y el mismo número de hilos n. Por tanto, el mejoramiento teórico del desempeño sería exactamente el mismo, asumiendo que no se presenta un cuello de botella por parte del CPU.
+✏️Si utilizamos la definición teórica de la ley de Amdahls, podemos concluir que tanto en el caso de usar 1 hilo en cada una de 100 máquinas hipotéticas, como en el de usar c hilos en 100/c máquinas distribuidas, no se presentaría una mejora de rendimiento del problema, ya que en cada uno de los 3 casos (incluyendo 100 hilos en una sola CPU), habría la misma fracción paralelizable del algoritmo P, y el mismo número de hilos n. Por tanto, el mejoramiento teórico del desempeño sería exactamente el mismo, asumiendo que no se presenta un cuello de botella por parte del CPU.
 
 
