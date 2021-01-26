@@ -133,10 +133,12 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/Paralelozaci%C3%B3n.PNG)
 
-Cuando se utilizan un numero muy alto numero de hilos es mas costoso la construción y ejecución de los mismos que el beneficio que este pueda dar. Por esta razón
-aveces cuando se tiene un nunmero mayor de hilo no brinda un mayor desempeño. 
+Cuando se utilizan un número muy alto numero de hilos es mas costoso la construción y ejecución de los mismos que el beneficio que este pueda dar. Por esta razón
+aveces cuando se tiene mayor número de hilos no brinda un mayor desempeño.
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
+
+si se aumenta el número de hilos sobre el número de nucleos se optiene un mayor rendimiento, porque no los aprobecha a su mayor potencial, debido va a tener un mayor rendimiento.  
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
