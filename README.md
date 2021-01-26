@@ -85,6 +85,9 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
 
 La estrategia de paralelismo antes implementada es ineficiente en ciertos casos, pues la búsqueda se sigue realizando aún cuando los N hilos (en su conjunto) ya hayan encontrado el número mínimo de ocurrencias requeridas para reportar al servidor como malicioso. Cómo se podría modificar la implementación para minimizar el número de consultas en estos casos?, qué elemento nuevo traería esto al problema?
+Para minimizar el numero de consultas es posible crear una variable global que incremente cada vez que se  realiza  una consulta. Dicha solución cuando se implementa impide
+llevar un conteo limpio de estos casos ya que las variables pueden sufrir modificación antes o despues de que otra variable sea conusulte, impidiendo que esta se modifique
+con el valor correcto.
 
 **Parte III - Evaluación de Desempeño**
 
