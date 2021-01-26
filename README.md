@@ -138,9 +138,10 @@ aveces cuando se tiene mayor número de hilos no brinda un mayor desempeño.
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
-si se aumenta el número de hilos sobre el número de nucleos se optiene un mayor rendimiento, porque no los aprobecha a su mayor potencial, debido va a tener un mayor rendimiento.  
+si se aumenta el número de hilos sobre el número de núcleos se optiene un mayor rendimiento. Esto se debe a que los hilos no aprovechan todo el potencial sobre el número de núcleos disponibles, por lo tanto quedan recursos libres que pueden ser aprovechados por un mayor número de hilos.   
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
+Si utilizamos la definición teórica de la ley de Amdahls, podemos concluir que tanto en el caso de usar 1 hilo en cada una de 100 máquinas hipotéticas, como en el de usar c hilos en 100/c máquinas distribuidas, no se presentaría una mejora de rendimiento del problema, ya que en cada uno de los 3 casos (incluyendo 100 hilos en una sola CPU), habría la misma fracción paralelizable del algoritmo P, y el mismo número de hilos n. Por tanto, el mejoramiento teórico del desempeño sería exactamente el mismo, asumiendo que no se presenta un cuello de botella por parte del CPU.
 
 
