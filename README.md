@@ -21,19 +21,22 @@
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
-### desarrollo de la practica:
 
-#### metodo start():
-se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
+---
+
+### 📂 Desarrollo de la práctica:
+
+#### ✏️ Método start():
+Se pudo evidenciar que el metodo start() , crea nuevos hilos en paralelo y los ejecuta, donde se evidencia que la salida de los intervalos de cada hilo salen en desorden:
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/start().png)
 
-#### metodo run():
-se pudo evidenciar que el metodo run(), crea los hilos desde el metodo , lo que hace que salida de los intervalos de los hilos sea ordenada ya que cada llamada la hace secuencialmente al llamado del metodo y no en paralelo:
+#### ✏️ Método run():
+Se pudo evidenciar que el metodo run(), crea los hilos desde el metodo , lo que hace que salida de los intervalos de los hilos sea ordenada ya que cada llamada la hace secuencialmente al llamado del metodo y no en paralelo:
 
 ![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/run().png)
 
-
+---
 
 **Parte II - Ejercicio Black List Search**
 
@@ -63,7 +66,16 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
 1. Cree una clase de tipo Thread que represente el ciclo de vida de un hilo que haga la búsqueda de un segmento del conjunto de servidores disponibles. Agregue a dicha clase un método que permita 'preguntarle' a las instancias del mismo (los hilos) cuantas ocurrencias de servidores maliciosos ha encontrado o encontró.
 
+📂 Desarrollo de la práctica:
+
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/host%20NO%20confiable.png)
+
+
 2. Agregue al método 'checkHost' un parámetro entero N, correspondiente al número de hilos entre los que se va a realizar la búsqueda (recuerde tener en cuenta si N es par o impar!). Modifique el código de este método para que divida el espacio de búsqueda entre las N partes indicadas, y paralelice la búsqueda a través de N hilos. Haga que dicha función espere hasta que los N hilos terminen de resolver su respectivo sub-problema, agregue las ocurrencias encontradas por cada hilo a la lista que retorna el método, y entonces calcule (sumando el total de ocurrencuas encontradas por cada hilo) si el número de ocurrencias es mayor o igual a _BLACK_LIST_ALARM_COUNT_. Si se da este caso, al final se DEBE reportar el host como confiable o no confiable, y mostrar el listado con los números de las listas negras respectivas. Para lograr este comportamiento de 'espera' revise el método [join](https://docs.oracle.com/javase/tutorial/essential/concurrency/join.html) del API de concurrencia de Java. Tenga también en cuenta:
+
+📂 Desarrollo de la práctica:
+
+![](https://github.com/danielrincon-m/ARSW_LAB1/blob/master/img/host%20%20confiable.png)
 
 	* Dentro del método checkHost Se debe mantener el LOG que informa, antes de retornar el resultado, el número de listas negras revisadas VS. el número de listas negras total (línea 60). Se debe garantizar que dicha información sea verídica bajo el nuevo esquema de procesamiento en paralelo planteado.
 
@@ -73,6 +85,9 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
 
 La estrategia de paralelismo antes implementada es ineficiente en ciertos casos, pues la búsqueda se sigue realizando aún cuando los N hilos (en su conjunto) ya hayan encontrado el número mínimo de ocurrencias requeridas para reportar al servidor como malicioso. Cómo se podría modificar la implementación para minimizar el número de consultas en estos casos?, qué elemento nuevo traería esto al problema?
+Para minimizar el numero de consultas es posible crear una variable global que incremente cada vez que se  realiza  una consulta. Dicha solución cuando se implementa impide
+llevar un conteo limpio de estos casos ya que las variables pueden sufrir modificación antes o despues de que otra variable sea conusulte, impidiendo que esta se modifique
+con el valor correcto.
 
 **Parte III - Evaluación de Desempeño**
 
